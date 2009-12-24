@@ -22,9 +22,9 @@ p = pdt.Calendar(c)
 app = wx.App()
 dlg = wx.TextEntryDialog(
         None, 'What date should this tickle?',
-        'Eh??', 'Python')
+        '', 'tomorrow')
 
-dlg.SetValue("tomorrow")
+#dlg.SetValue("tomorrow")
 
 if dlg.ShowModal() == wx.ID_OK:
     user_input = dlg.GetValue()	
