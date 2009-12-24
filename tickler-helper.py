@@ -15,36 +15,30 @@ c = pdc.Constants()
 
 p = pdt.Calendar(c)
 
+
 # TODO: Check to see if there was user input, if not, then popup dialog
 # user_input = sys.stdin.readlines()
 
-class TicklerWindow(wx.App):
-	def OnInit(self):
-		dlg = wx.TextEntryDialog(
-		        self, 'What date should this tickele?',
-		        'Eh??', 'Python')
+app = wx.App()
+dlg = wx.TextEntryDialog(
+        None, 'What date should this tickle?',
+        'Eh??', 'Python')
 
-		dlg.SetValue("tomorrow")
+dlg.SetValue("tomorrow")
 
-		if dlg.ShowModal() == wx.ID_OK:
-		    self.log.WriteText('You entered: %s\n' % dlg.GetValue())
-		    user_input = dlg.GetValue()	
+if dlg.ShowModal() == wx.ID_OK:
+    user_input = dlg.GetValue()	
 
-		dlg.Destroy()
+    try: 
+        # parse "tomorrow" and return the result
+        result = p.parse(user_input)
+        result = time.struct_time(result[0])
+        cmd = "open '/Users/golliher/Documents/Tickler File/%s/%s/%s'" %  (result.tm_year, result.tm_mon, result.tm_mday)
+        os.system(cmd)
 
-app = TicklerWindow(0)
+    except:
+        print "Could not parse your input.  Sorry"
+
+dlg.Destroy()
 app.MainLoop()
 
-###   try: 
-###   	# parse "tomorrow" and return the result
-###   	result = p.parse(user_input[0])
-###   	result = time.struct_time(result[0])
-###   	print result.tm_mon, result.tm_mday
-###   		
-###   except:
-###   	print "Could not parse your input.  Sorry"
-###   
-###   
-###   cmd = "open '/Users/golliher/Documents/Tickler File/%s/%s/%s'" %  (result.tm_year, result.tm_mon, result.tm_mday)
-###   
-###   os.system(cmd)
