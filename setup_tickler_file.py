@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os,ConfigParser
+import os,ConfigParser,datetime
 config = ConfigParser.ConfigParser()
 config.read("config.ini")
 
@@ -11,7 +11,8 @@ num_years_to_create = 3
 
 
 # TODO: Figure out what year it is right now as of when we are running
-starting_year = 2009
+today = datetime.date.today()
+starting_year = today.year
 ending_year = starting_year + num_years_to_create
 
 
