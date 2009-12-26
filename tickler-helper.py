@@ -3,7 +3,10 @@
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
 import sys,os,time,wx
+import ConfigParser
 
+config = ConfigParser.ConfigParser()
+config.read("config.ini")
 
 # create an instance of Constants class so we can override some of the defaults
 c = pdc.Constants()
@@ -19,7 +22,6 @@ dlg = wx.TextEntryDialog(
 
 if dlg.ShowModal() == wx.ID_OK:
     user_input = dlg.GetValue()
-
     try: 
         # parse "tomorrow" and return the result as a tuple
         result = p.parse(user_input)
@@ -27,13 +29,10 @@ if dlg.ShowModal() == wx.ID_OK:
              raise Exception("Not able to parse user input")
 
         result = time.struct_time(result[0])
-        cmd = "open '/Users/golliher/Documents/Tickler File/%s/%s/%s'" %  (result.tm_year, result.tm_mon, result.tm_mday)
+        cmd = "open '%s/%s/%s/%s'" %  (config.get("global","tickle_file_dir"),result.tm_year, result.tm_mon, result.tm_mday)
         os.system(cmd)
-
     except:
         wx.MessageBox('Didn\'t understand what you meant by "%s"' % user_input,'Sorry...')
- 
-        
 
 dlg.Destroy()
 app.MainLoop()
