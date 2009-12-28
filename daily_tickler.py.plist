@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>daily_tickler.py</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/golliher/CODE/GIT-LOCAL/python-tickler-helper/daily_tickler.py</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/golliher/CODE/GIT-LOCAL/python-tickler-helper</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Minute</key>
+		<integer>0</integer>
+		<key>Hour</key>
+		<integer>6</integer>
+	</dict>
+</dict>
+</plist>

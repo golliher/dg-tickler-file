@@ -1,5 +1,10 @@
 #!/usr/bin/python
-
+#
+# Program that make is easy for user to pop open a folder for a specific date.
+#   exampleS:   "next tuesday"  or "20 days"  or "1/1/2011"
+#
+# I launch this program from Quicksilver.  You could also launch it from Spotlight.
+#   I also renamte it to th.command for convenience.
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
 import sys,os,time,wx
@@ -16,9 +21,7 @@ c = pdc.Constants()
 p = pdt.Calendar(c)
 
 app = wx.App()
-dlg = wx.TextEntryDialog(
-        None, 'What date should this tickle?',
-        '', 'tomorrow')
+dlg = wx.TextEntryDialog(None, 'What date should this tickle?','', 'tomorrow')
 
 if dlg.ShowModal() == wx.ID_OK:
     user_input = dlg.GetValue()
@@ -29,10 +32,15 @@ if dlg.ShowModal() == wx.ID_OK:
              raise Exception("Not able to parse user input")
 
         result = time.struct_time(result[0])
-        cmd = "open '%s/%s/%s/%s'" %  (config.get("global","tickle_file_dir"),result.tm_year, result.tm_mon, result.tm_mday)
+        cmd = 'open "{0}/{1}/{2:02}/{3:02}"'.format(
+                                            config.get("global","tickle_file_dir"),
+                                            result.tm_year, 
+                                            result.tm_mon, 
+                                            result.tm_mday)
         os.system(cmd)
     except:
-        wx.MessageBox('Didn\'t understand what you meant by "%s"' % user_input,'Sorry...')
+        wx.MessageBox('Didn\'t understand what you meant by "%s"' 
+                                            % user_input,'Sorry...')
 
 dlg.Destroy()
 app.MainLoop()
