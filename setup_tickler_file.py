@@ -25,9 +25,13 @@ for year in range(starting_year,ending_year+1):
         print "\t%s" % month
         for day in range(1,32):
             print "\t\t%s" % day
-            cmd = 'mkdir -p "%s' %  (config.get("global","tickle_file_dir") 
+            new_directory_path = (config.get("global","tickle_file_dir") 
                                         + "/" + str(year) 
                                         + "/" + str(month).zfill(2) 
                                         + "/" + str(day).zfill(2) 
                                         + '"')
-            os.system(cmd)
+            try:                            
+                os.makedirs(new_directory_path)
+            except:
+                print("Directory creation failed for %s  Perhaps it already exists?"
+                        % new_directory_path)    
