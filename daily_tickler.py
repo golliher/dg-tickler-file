@@ -7,6 +7,7 @@
 import sys,os,time,wx
 import time,datetime
 import ConfigParser
+from open_folder import *
 
 config = ConfigParser.ConfigParser()
 config.read("config.ini")
@@ -20,15 +21,18 @@ the_today_folder = config.get("global","the_today_folder")
 
 # Get rid of the old symlink first
 try:
-    cmd = 'rm %s' % the_today_folder
-    os.system(cmd)
+    os.remove(the_today_folder)
 except:
     print("Warning: Unabled to remove old symlink ({1}).".format(the_today_folder))
 
 # Create a symlink to make it easy for user to open up "today"
+# (NOTE TO SELF: Perhaps windows users just don't get this convenience? 
+#   (because no symlinks on windows)
 cmd = 'ln -s "%s" "%s"' % (todays_folder,the_today_folder)
-os.system(cmd)
+try:
+    os.system(cmd)
+except:
+    print "Failed to create a symlink for today.   This is probably OK."
 
 # Go ahead and pop open the folder to it's front and center
-cmd = 'open "%s"' % the_today_folder
-os.system(cmd)
+open_folder(todays_folder)

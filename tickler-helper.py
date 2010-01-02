@@ -5,10 +5,13 @@
 #
 # I launch this program from Quicksilver.  You could also launch it from Spotlight.
 #   I also renamte it to th.command for convenience.
+# TODO: This program needs to be extended such that it knows if its runnding on
+#    Mac or Windows (and maybe late, Linux)
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
 import sys,os,time,wx
 import ConfigParser
+from open_folder import open_folder
 
 config = ConfigParser.ConfigParser()
 config.read("config.ini")
@@ -32,12 +35,14 @@ if dlg.ShowModal() == wx.ID_OK:
              raise Exception("Not able to parse user input")
 
         result = time.struct_time(result[0])
-        cmd = 'open "{0}/{1}/{2:02}/{3:02}"'.format(
+        folder_name = '{0}/{1}/{2:02}/{3:02}'.format(
                                             config.get("global","tickle_file_dir"),
                                             result.tm_year, 
                                             result.tm_mon, 
                                             result.tm_mday)
-        os.system(cmd)
+        #os.system(folder_name)
+        open_folder(folder_name)
+        
     except:
         wx.MessageBox('Didn\'t understand what you meant by "%s"' 
                                             % user_input,'Sorry...')

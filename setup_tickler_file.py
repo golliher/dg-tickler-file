@@ -29,7 +29,7 @@ for year in range(starting_year,ending_year+1):
                                         + "/" + str(year) 
                                         + "/" + str(month).zfill(2) 
                                         + "/" + str(day).zfill(2) 
-                                        + '"')
+                                        )
             try:                            
                 os.makedirs(new_directory_path)
             except:
