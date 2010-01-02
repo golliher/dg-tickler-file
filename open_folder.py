@@ -15,7 +15,5 @@ def open_folder(path):
            'Windows':'explorer'}[platform.system()]
     format_string = {'Darwin': "%s '%s'",  # note the quotation marks around path
                      'Windows': "%s %s"}[platform.system()]
-    print cmd
-    print path
-    os.system(format_string % (cmd, path))
+    os.popen(format_string % (cmd, path))
     
