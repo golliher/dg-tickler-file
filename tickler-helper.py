@@ -5,8 +5,6 @@
 #
 # I launch this program from Quicksilver.  You could also launch it from Spotlight.
 #   I also renamte it to th.command for convenience.
-# TODO: This program needs to be extended such that it knows if its runnding on
-#    Mac or Windows (and maybe late, Linux)
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
 import sys,os,time,wx
@@ -40,7 +38,6 @@ if dlg.ShowModal() == wx.ID_OK:
                                             result.tm_year, 
                                             result.tm_mon, 
                                             result.tm_mday)
-        #os.system(folder_name)
         open_folder(folder_name)
         
     except:
