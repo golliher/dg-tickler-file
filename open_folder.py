@@ -14,7 +14,7 @@ import os, platform
 def open_folder(path):
     cmd = {'Darwin': 'open',      # aka. Mac OS X
            'Windows':'explorer'}[platform.system()]
-    os.path.normpath(path)
+    path = os.path.normpath(path)
     print cmd
     print path
     os.system("%s '%s'" % (cmd, path))

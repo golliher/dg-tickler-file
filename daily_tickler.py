@@ -23,7 +23,7 @@ the_today_folder = config.get("global","the_today_folder")
 try:
     os.remove(the_today_folder)
 except:
-    print("Warning: Unabled to remove old symlink ({1}).".format(the_today_folder))
+    print("Warning: Unabled to remove old symlink.")
 
 # Create a symlink to make it easy for user to open up "today"
 # (NOTE TO SELF: Perhaps windows users just don't get this convenience? 
