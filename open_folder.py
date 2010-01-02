@@ -4,18 +4,18 @@ import os, platform
 #   here in this module.  
 # 
 # On Mac OS X you do this with "open"
-#   e.g. "open \Users\golliher\Documents\Tickler File"
+#   e.g. "open '\Users\golliher\Documents\Tickler File'"
 # On Windows you do this with "explorer"
 #   e.g. "explorer c:\Documents and Settings\Tickler File"
 
-# TODO: What operating system are we on?
-# Set variable for the commands
 
 def open_folder(path):
+    path = os.path.normpath(path)
     cmd = {'Darwin': 'open',      # aka. Mac OS X
            'Windows':'explorer'}[platform.system()]
-    path = os.path.normpath(path)
+    format_string = {'Darwin': "%s '%s'",  # note the quotation marks around path
+                     'Windows': "%s %s"}[platform.system()]
     print cmd
     print path
-    os.system("%s '%s'" % (cmd, path))
+    os.system(format_string % (cmd, path))
     
