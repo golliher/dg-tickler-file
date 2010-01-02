@@ -1,0 +1,16 @@
+TODO: Make it portable so that it works on Windows and Linux(Gnome and KDE)
+* Problems.   
+** Paths (forward slashes vs. backslashes) 
+** Windows "explorer" doesn't like quoted paths, Mac "open" needs path to be quoted is there are spaces in the path
+** Packaging requirements:  parasedatetime and wxwindows
+
+
+TODO: Help user setup it up for the first time (wxPython configuration wizard)
+	if a valid configuration isn't found.
+
+TODO: Add routine sanity checks.  
+     Example: do we have a tickler hierarchy?
+	 Example: do we have a hierarchy for next year?
+
+TODO: Help user schedule the daily_tickler.py script for their operating system 
+	Example:  cronjob for Unix/Linux
