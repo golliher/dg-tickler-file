@@ -4,7 +4,7 @@
 #   exampleS:   "next tuesday"  or "20 days"  or "1/1/2011"
 #
 # I launch this program from Quicksilver.  You could also launch it from Spotlight.
-#   I also renamte it to th.command for convenience.
+#   I also rename it to th.command for convenience.
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
 import sys,os,time,wx
