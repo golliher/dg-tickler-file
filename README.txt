@@ -25,6 +25,10 @@ tickler-helper.py makes finding the folder for the date in the future easier.  R
 
 You may want to arrange for it to be easy to run this command.  On my mac I launch it with quicksilver.  On windows I setup a hot key such that control-alt-t launches it.
 
+=Tips=
+
+Rename (or copy) tickler-helper.py to use .pyw extension on windows to avoid console opening with the program.  Same goes for daily_ticker.py
+
 =Requirements=
 
 This program requires parsedatetime and wxpython
