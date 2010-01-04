@@ -4,7 +4,7 @@ I wrote this to teach[1] myself python.   It's an implementation of a system for
 
 The concept is simple.  Every day of the year has a folder.  At the start of each day you pull out the folder for today's date and in it you will find things you thought you'd need today.
 
-This is a digital implementation of such a system.   It was inspired by a collection of Apple scripts for doing much the same thing.   I hope someone will find this useful.   Admittedly, some assembly is required. By that I mean there's no fancy installer or GUI wizard to set it up for you.
+This is a digital implementation of such a system.   It was inspired by a collection of AppleScripts for doing much the same thing.   I hope someone will find this useful.   Admittedly, some assembly is required. By that I mean there's no fancy installer or GUI wizard to set it up for you.
 
 Good luck and please let me know if you find it useful.
 
@@ -17,7 +17,7 @@ Good luck and please let me know if you find it useful.
 
 =How to use it=
 
-Simply find the folder for the date in the future you want sometime to come back to  you.  Drag your files into it.  Simple.   When that date arrives, your daily_tickler.py will run and open the folder for you and you'll be presented with it and it's contents.
+Simply find the folder for the date in the future you want sometime to come back to  you.  Drag your files into it.  Simple.   When that date arrives, your daily_tickler.py will run and open the folder for you and you'll be presented with it and its contents.
 
 =A little extra help=
 
