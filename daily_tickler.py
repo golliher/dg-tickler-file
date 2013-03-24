@@ -4,7 +4,7 @@
 #  also creates a symlink so that it's easy for user to open "today"
 #  if she closes it and wants to open it again
 #
-import sys,os,time,wx
+import sys,os,time
 import time,datetime
 import ConfigParser
 from open_folder import *

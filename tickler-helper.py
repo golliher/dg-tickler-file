@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python 
 #
 # Program that make is easy for user to pop open a folder for a specific date.
 #   exampleS:   "next tuesday"  or "20 days"  or "1/1/2011"
@@ -7,7 +7,12 @@
 #   I also rename it to th.command for convenience.
 import parsedatetime.parsedatetime as pdt
 import parsedatetime.parsedatetime_consts as pdc
-import sys,os,time,wx
+import sys,os,time
+try:
+    import wx
+except ImportError
+    pass
+    
 import ConfigParser
 from open_folder import open_folder
 

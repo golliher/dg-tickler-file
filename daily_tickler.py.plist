@@ -6,16 +6,33 @@
 	<string>daily_tickler.py</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/golliher/CODE/GIT-LOCAL/python-tickler-helper/daily_tickler.py</string>
+		<string>/Users/dgolliher/.virtualenvs/tickler-file/bin/python</string>
+		<string>daily_tickler.py</string>
 	</array>
 	<key>WorkingDirectory</key>
-	<string>/Users/golliher/CODE/GIT-LOCAL/python-tickler-helper</string>
+	<string>/Users/dgolliher/CodeProjects/dg-tickler-file</string>
 	<key>StartCalendarInterval</key>
+	<array>
 	<dict>
 		<key>Minute</key>
-		<integer>0</integer>
+		<integer>30</integer>
 		<key>Hour</key>
-		<integer>6</integer>
+		<integer>4</integer>
 	</dict>
+	<dict>
+		<key>Minute</key>
+		<integer>30</integer>
+		<key>Hour</key>
+		<integer>9</integer>
+	</dict>
+	<dict>
+		<key>Minute</key>
+		<integer>05</integer>
+		<key>Hour</key>
+		<integer>10</integer>
+	</dict>
+    </array>
+	<key>Debug</key>
+    <true/>
 </dict>
 </plist>
