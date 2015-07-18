@@ -1,4 +1,4 @@
-#!/usr/bin/env python#
+#!/usr/bin/env python
 # Designed to be run daily and pop open today's ticker folder
 #  also creates a symlink so that it's easy for user to open "today"
 #  if she closes it and wants to open it again
