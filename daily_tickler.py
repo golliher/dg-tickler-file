@@ -7,31 +7,34 @@ import sys,os,time
 import os.path
 import time,datetime
 import ConfigParser
+
 from open_folder import *
 
-import gntp.notifier
+try:
+    import gntp.notifier
+    image = open('./myfolder.png', 'rb').read()
 
-image = open('./myfolder.png', 'rb').read()
-
-# More complete example
-growl = gntp.notifier.GrowlNotifier(
-    applicationName = "Tickler File",
-    notifications = ["New Updates","New Messages"],
-    defaultNotifications = ["New Messages"],
-)
-growl.register()
-
+    growl = gntp.notifier.GrowlNotifier(
+        applicationName = "Tickler File",
+        notifications = ["New Updates","New Messages"],
+        defaultNotifications = ["New Messages"],
+    )
+    growl.register()
+except:
+    growl = False
 
 def notify_user(msg):
-    growl.notify(
-        noteType = "New Messages",
-        title = "Checked today's ticker file.",
-        description = msg,
-        icon = image,
+    if (growl):
+        growl.notify(
+            noteType = "New Messages",
+            title = "Checked today's ticker file.",
+            description = msg,
+            icon = image,
 
-        sticky = True,
-        priority = 1,
-    )
+            sticky = True,
+            priority = 1,
+        )
+    print msg
 
 
 
