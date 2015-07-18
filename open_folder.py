@@ -6,13 +6,21 @@ import os, platform
 #   e.g. "open '\Users\golliher\Documents\Tickler File'"
 # On Windows you do this with "explorer"
 #   e.g. "explorer c:\Documents and Settings\Tickler File"
-
+# On Linux xdg-open is a desktop-independant tool
 
 def open_folder(path):
+    '''Runs operating specific command to open a folder.  MacOS, Linux & Windows supported'''
+
     path = os.path.normpath(path)
 
-    format_string = {'Darwin': "open '%s'",  # note the quotation marks around path
-                     'Linux':  "xdg-open '%s'",
-                     'Windows': "explorer %s"}[platform.system()]
+    try:
+        platform_cmd_formatstring = { 'Darwin':  "open '%s'",  # note the quotation marks around path
+                                      'Linux':   "xdg-open '%s'",
+                                      'Windows': "explorer %s"}[platform.system()]
+    except:
+        raise Exception("Your operating system was not recognized.  Unable to determine how to open folders for you.")
 
-    os.popen(format_string % path)
+
+    platform_cmd = platform_cmd_formatstring % path
+
+    os.popen(platform_cmd)
