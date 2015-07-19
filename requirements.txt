@@ -1,3 +1,4 @@
 parsedatetime==0.8.7
 gntp
 pytest
+funcsigs
