@@ -55,8 +55,9 @@ try:
     open_folder(folder_name)
     
 except:
-    wx.MessageBox('Didn\'t understand what you meant by "%s"' 
-                                        % user_input,'Sorry...')
+    print "I didn't understand what you mean by '%s'" % user_input
+    # wx.MessageBox('Didn\'t understand what you meant by "%s"' 
+    #                                     % user_input,'Sorry...')
 
 if 'app' in globals():
     app.MainLoop()
